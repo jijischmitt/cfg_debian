@@ -1,4 +1,4 @@
-# cfg_debian
+## cfg_debian.yml
 set Debian APT and Update config, no reboot. 
 
 ### run 
@@ -8,3 +8,7 @@ Sets Debian default apt sources.list
 Set up Dayly updates without reboots. 
 Set up this configuration every Day
 Run @16 PM sets up this config, send mail if error 
+
+
+## do_reboot.yml 
+## do_dist_upgrade.yml
