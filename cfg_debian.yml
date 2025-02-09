@@ -1,6 +1,6 @@
 ---
 - name: Configure Debian base
-  hosts: all
+  hosts: localhost
   become: yes
 
   tasks:
