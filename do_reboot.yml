@@ -1,3 +1,7 @@
-
-- name: Unconditionally reboot the machine with all defaults
+---
+- name: Reboot 
+  hosts: localhost
+  become: yes
+  tasks:
+- name: Reboot
   ansible.builtin.reboot:
