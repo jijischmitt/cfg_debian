@@ -14,6 +14,7 @@
 
     - name: Update apt cache
       apt:
+        name: "*"
         update_cache: yes
 
     - name: Install unattended-upgrades package
@@ -37,7 +38,7 @@
 
     - name: Send email to root after job run
       cron:
-        name: "Send email to root after unattended-upgrades"
+        name: "do updates"
         minute: "0"
-        hour: "0"
+        hour: "16"
         job: 'ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml >/tmp/ansible-pull.log 2>&1 & if [ $? -ne 0 ]; then cat /tmp/ansible-pull.log | mail -s "Ansible Pull Error" root; fi '
