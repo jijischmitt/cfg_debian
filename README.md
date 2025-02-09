@@ -1,10 +1,10 @@
 # cfg_debian
-Designed for ansible-pull, locally executed as root , for debian base config
-### Auth 
-Github Public Repository
-### URL 
-git@github.com:jijischmitt/cfg_debian.git 
+set Debian APT and Update config, no reboot. 
 
-Set up Debian default apt sources.list 
-Set up Auto update of Security updates without reboots
-send email to root after the job has been run 
+### run 
+ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml
+
+Sets Debian default apt sources.list 
+Set up Dayly updates without reboots. 
+Set up this configuration every Day
+Run @16 PM sets up this config, send mail if error 
