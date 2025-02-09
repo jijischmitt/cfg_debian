@@ -4,7 +4,7 @@
   become: yes
 
   tasks:
-    - name: Set up Debian default apt sources.list
+    - name: Set up Debian/Ubuntu default apt sources.list
       ansible.builtin.template:
         src: sources.list.j2
         dest: /etc/apt/sources.list
@@ -38,7 +38,7 @@
 
     - name: Send email to root after job run
       cron:
-        name: "do updates"
+        name: "Set Debian Update Configuration"
         minute: "0"
         hour: "16"
         job: 'ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml >/tmp/ansible-pull.log 2>&1 & if [ $? -ne 0 ]; then cat /tmp/ansible-pull.log | mail -s "Ansible Pull Error" root; fi '
