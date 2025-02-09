@@ -9,6 +9,7 @@ Set up Dayly updates without reboots.
 Set up this configuration every Day
 Run @16 PM sets up this config, send mail if error 
 
-
 ## do_reboot.yml 
+send reboot command 
 ## do_dist_upgrade.yml
+send dist upgrade command 
