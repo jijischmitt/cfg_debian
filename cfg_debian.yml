@@ -1,0 +1,43 @@
+---
+- name: Configure Debian base
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Set up Debian default apt sources.list
+      ansible.builtin.template:
+        src: sources.list.j2
+        dest: /etc/apt/sources.list
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install unattended-upgrades package
+      apt:
+        name: unattended-upgrades
+        state: present
+
+    - name: Configure unattended-upgrades
+      copy:
+        src: /path/to/your/50unattended-upgrades
+        dest: /etc/apt/apt.conf.d/50unattended-upgrades
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Enable unattended-upgrades
+      lineinfile:
+        path: /etc/apt/apt.conf.d/20auto-upgrades
+        line: 'APT::Periodic::Unattended-Upgrade "1";'
+        create: yes
+
+    - name: Send email to root after job run
+      cron:
+        name: "Send email to root after unattended-upgrades"
+        minute: "0"
+        hour: "0"
+        job: 'echo "Unattended upgrades completed" | mail -s "Unattended Upgrades" root@localhost'
