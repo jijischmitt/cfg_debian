@@ -40,4 +40,4 @@
         name: "Send email to root after unattended-upgrades"
         minute: "0"
         hour: "0"
-        job: 'echo "Unattended upgrades completed" | mail -s "Unattended Upgrades" root@localhost'
+        job: 'ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml >/tmp/ansible-pull.log 2>&1 & if [ $? -ne 0 ]; then cat /tmp/ansible-pull.log | mail -s "Ansible Pull Error" root; fi '
