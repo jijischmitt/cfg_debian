@@ -18,6 +18,7 @@
 
     ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml
 
+```mermaid
 graph TD
     A[/"`ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml`"\]
     R1(("`Role apt_cfg`")) 
@@ -37,6 +38,6 @@ R1 --> R1Ta1 --> R1Ta2 --> R1Ta3 --> R1Ta4 --> R1Ta5 --> R1Ta6
 R1Ta6 --> R2
 R2 --> R2ta1 --> R2ta2 --> R2ta3
 R2ta3 -->|cron execution @4 AM | A
-
+```
 
 
