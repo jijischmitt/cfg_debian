@@ -20,5 +20,5 @@
     ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml
 
 - Sets Debian default apt sources.list 
-- Set up Dayly updates without reboots. 
+- Set up Daily updates without reboots. 
 - Run @16 PM sets up this config, send mail if error 
