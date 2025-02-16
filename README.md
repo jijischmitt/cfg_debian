@@ -1,19 +1,14 @@
-
-## Dependencies
-
-> 
-
-### Config Auto Update
+### Configure Auto Update
 
  - Set up Auto Update for DEbian / Ubuntu
  - Reboot if needed
  - reset everything, everyday @3 AM
-
-> redo config every day @4 AM and send mail on error to root
  
-  #### run
+ #### run
 
     apt install ansible && ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml
+
+#### Whats happening: 
 
 ```mermaid
 graph TD
