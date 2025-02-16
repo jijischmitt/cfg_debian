@@ -12,7 +12,7 @@
  - Enable unattended-upgrades
  - Sets up Cronjob 
 
-> redo config every day @16H and send mail on error to root
+> redo config every day @5 AM and send mail on error to root
 
  
   #### run
@@ -21,4 +21,5 @@
 
 - Sets Debian default apt sources.list 
 - Set up Daily updates without reboots. 
-- Run @16 PM sets up this config, send mail if error 
+- Run @5 AM sets up this config, send mail if error 
+- Check if reboot is requied, if so reboot.

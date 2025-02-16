@@ -17,7 +17,10 @@ Unattended-Upgrade::Mail "root";
 Unattended-Upgrade::Remove-Unused-Dependencies "true";
 
 // Automatically reboot *WITHOUT CONFIRMATION* if the file /var/run/reboot-required is found after the upgrade
-Unattended-Upgrade::Automatic-Reboot "false";
+
+Unattended-Upgrade::Automatic-Reboot "{{ auto_reboot }}";
+Unattended-Upgrade::Automatic-Reboot-Time "{{ reboot_at }}";
+
 
 // Use apt bandwidth limit
 // Acquire::http::Dl-Limit "70";

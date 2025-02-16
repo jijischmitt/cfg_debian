@@ -1,0 +1,15 @@
+---
+- name: Check if reboot exists
+  stat:
+    path: /var/run/reboot-required
+  register: reboot_result
+
+- name: Run needrestart in check mode
+  command: needrestart -q -l
+  register: needrestart_result
+  failed_when: needrestart_result.rc > 1
+
+- name: Reboot if required
+  reboot:
+    msg: "Rebooting Server via Ansible Playbook"
+  when: reboot_result.stat.exists or needrestart_result.rc == 1
