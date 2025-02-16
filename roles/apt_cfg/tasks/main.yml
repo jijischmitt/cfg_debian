@@ -12,9 +12,11 @@
     name: "*"
     update_cache: yes
 
-- name: Install unattended-upgrades package
+- name: apt install unattended-upgrades,needrestart
   ansible.builtin.apt:
-    name: unattended-upgrades
+    name: 
+      - unattended-upgrades
+      - needrestart
     state: present
 
 - name: Configure unattended-upgrades
