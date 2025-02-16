@@ -1,5 +1,0 @@
----
-- name: apt install dist-upgrade
-  ansible.builtin.apt:
-    update-cache: yes
-    upgrade: dist
