@@ -20,7 +20,7 @@
 
 ```mermaid
 graph TD
-    A[/"`ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml`"\]
+    A[/"`ansible-pull ... -C main setup.yml`"\]
     R1(("`Role apt_cfg`")) 
     R1Ta1[Set up Debian/Ubuntu default apt sources.list]
     R1Ta2[Update apt cache]
