@@ -1,0 +1,7 @@
+---
+- name: Set up apt config
+  hosts: localhost
+  become: yes
+
+  roles:
+    - apt_cfg

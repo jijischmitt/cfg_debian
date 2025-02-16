@@ -1,7 +1,0 @@
----
-- name: Reboot 
-  hosts: localhost
-  become: yes
-  tasks:
-- name: Reboot
-  ansible.builtin.reboot:

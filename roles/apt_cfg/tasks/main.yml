@@ -1,0 +1,42 @@
+---
+- name: Set up Debian/Ubuntu default apt sources.list
+  ansible.builtin.template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Update apt cache
+  apt:
+    name: "*"
+    update_cache: yes
+
+- name: Install unattended-upgrades package
+  apt:
+    name: unattended-upgrades
+    state: present
+
+- name: Configure unattended-upgrades
+  copy:
+    src: 50unattended-upgrades.j2
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Enable unattended-upgrades
+  lineinfile:
+    path: /etc/apt/apt.conf.d/20auto-upgrades
+    line: 'APT::Periodic::Unattended-Upgrade "1";'
+    create: yes
+
+- name: Send email to root after job run
+  cron:
+    name: "Set Debian Update Configuration"
+    minute: "0"
+    hour: "16"
+    job: >
+      'ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml >/tmp/ansible-pull.log 2>&1 & 
+      if [ $? -ne 0 ]; then cat /tmp/ansible-pull.log | 
+      mail -s "Ansible Pull Error" root; fi '
