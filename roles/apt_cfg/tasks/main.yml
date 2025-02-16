@@ -31,7 +31,7 @@
     line: 'APT::Periodic::Unattended-Upgrade "1";'
     create: yes
 
-- name: Send email to root after job run
+- name: Set up Cron, send mail on error 
   cron:
     name: "Set Debian Update Configuration"
     minute: "0"
