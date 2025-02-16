@@ -1,6 +1,6 @@
 ### Configure Auto Update
 
- - Set up Auto Update for DEbian / Ubuntu
+ - Set up Auto Update for Debian / Ubuntu
  - Reboot if needed
  - reset everything, everyday @3 AM
  
