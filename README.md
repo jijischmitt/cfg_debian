@@ -1,22 +1,19 @@
 
 ## Dependencies
 
-> apt install ansible
+> 
 
 ### Config Auto Update
 
- - Set up Debian/Ubuntu default apt sources.list
- - Update apt cache
- - Install unattended-upgrades package
- - Configure unattended-upgrades --> 50unattended-upgrades.j2
- - Enable unattended-upgrades
- - Sets up Cronjob 
+ - Set up Auto Update for DEbian / Ubuntu
+ - Reboot if needed
+ - reset everything, everyday @3 AM
 
 > redo config every day @4 AM and send mail on error to root
  
   #### run
 
-    ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml
+    apt install ansible && ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main setup.yml
 
 ```mermaid
 graph TD
@@ -37,7 +34,7 @@ A --> R1
 R1 --> R1Ta1 --> R1Ta2 --> R1Ta3 --> R1Ta4 --> R1Ta5 --> R1Ta6 
 R1Ta6 --> R2
 R2 --> R2ta1 --> R2ta2 --> R2ta3
-R2ta3 -->|cron execution @4 AM | A
+R2ta3 -->|cron execution @3 AM | A
 ```
 
 
