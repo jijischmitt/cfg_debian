@@ -8,17 +8,17 @@
     mode: '0644'
 
 - name: Update apt cache
-  apt:
+  ansible.builtin.apt:
     name: "*"
     update_cache: yes
 
 - name: Install unattended-upgrades package
-  apt:
+  ansible.builtin.apt:
     name: unattended-upgrades
     state: present
 
 - name: Configure unattended-upgrades
-  copy:
+  ansible.builtin.template:
     src: 50unattended-upgrades.j2
     dest: /etc/apt/apt.conf.d/50unattended-upgrades
     owner: root
@@ -26,13 +26,13 @@
     mode: '0644'
 
 - name: Enable unattended-upgrades
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/apt/apt.conf.d/20auto-upgrades
     line: 'APT::Periodic::Unattended-Upgrade "1";'
     create: yes
 
 - name: Set up Cron, send mail on error 
-  cron:
+  ansible.builtin.cron:
     name: "Set Debian Update Configuration"
     minute: "0"
     hour: "16"
