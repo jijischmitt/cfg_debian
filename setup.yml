@@ -4,7 +4,7 @@
   become: yes
   vars:
     auto_reboot: true # true or false 
-    reboot_at:   03:00 # 03:00 AM  
+    reboot_at:   05:00 # 05:00 AM  
   roles:
     - apt_cfg
     - reboot_if_required
