@@ -33,11 +33,18 @@
     line: 'APT::Periodic::Unattended-Upgrade "1";'
     create: yes
 
+- name: Removes a cron file from under /etc/cron.d
+  ansible.builtin.cron:
+    name: set_apt_cfg
+    cron_file: ansible_yum-autoupdate
+    state: absent
+
+
 - name: Set up Cron, send mail on error 
   ansible.builtin.cron:
     name: "Set Debian Update Configuration"
     minute: "0"
-    hour: "3"
+    hour: "5"
     job: 'ansible-pull -U https://github.com/jijischmitt/cfg_debian.git -C main cfg_debian.yml >/tmp/ansible-pull.log 2>&1 & if [ $? -ne 0 ]; then cat /tmp/ansible-pull.log | mail -s "Ansible Pull Error" root; fi '
     user: root
-    cron_file: set_apt_cfg
+    cron_file: check_reboot

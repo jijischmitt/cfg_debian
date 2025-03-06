@@ -2,9 +2,6 @@
 - name: Set up apt config
   hosts: localhost
   become: yes
-  vars:
-    auto_reboot: true # true or false 
-    reboot_at:   05:00 # 05:00 AM  
   roles:
     - apt_cfg
-    - reboot_if_required
+    - reboot_if_required # at 5 am 

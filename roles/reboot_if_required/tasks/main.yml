@@ -4,12 +4,11 @@
     path: /var/run/reboot-required
   register: reboot_result
 
-- name: Check if needrestart file exists
-  command: needrestart -q -l
-  register: needrestart_result
-  failed_when: needrestart_result.rc > 1
+- name: Check if a restart is needed
+  shell: "needrestart -b 2> >(grep -q NEEDRESTART-SVC)"
+  register: restart_check
+  ignore_errors: true # Allow the task to continue even if grep fails (no restart needed)
 
-- name: Reboot if required
+- name: Reboot 
   reboot:
-    msg: "Rebooting Server via Ansible Playbook"
-  when: reboot_result.stat.exists or needrestart_result.rc == 1
+  when: restart_check.rc == 0
