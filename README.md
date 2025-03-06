@@ -2,7 +2,7 @@
 
  - Set up Auto Update for Debian / Ubuntu
  - Reboot if needed
- - reset everything, everyday @3 AM
+ - re-set everything, everyday @5 AM
  
  #### run
 
