@@ -1,8 +1,8 @@
 {% if ansible_distribution == 'Debian' %}
-deb https://deb.debian.org/debian {{ ansible_distribution_release }} main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
-deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
-deb https://deb.debian.org/debian-security/ {{ ansible_distribution_release }}-security main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
-deb https://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }} main contrib {{ non-free-firmware if ansible_distribution_major_version >= '12' else non-free }}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates main contrib {{ non-free-firmware if ansible_distribution_major_version >= '12' else non-free }}
+deb https://deb.debian.org/debian-security/ {{ ansible_distribution_release }}-security main contrib {{ non-free-firmware if ansible_distribution_major_version >= '12' else non-free }}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib {{ non-free-firmware if ansible_distribution_major_version >= '12' else non-free }}
 {% elif ansible_distribution == 'Ubuntu' %}
 deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted
 deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates main restricted
