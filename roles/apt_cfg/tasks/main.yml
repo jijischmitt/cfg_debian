@@ -3,7 +3,7 @@
 - name: Add debian repo
   deb822_repository:
     name: debian
-    types: deb deb-src
+    types: deb
     uris: http://deb.debian.org/debian
     suites: bookworm bookworm-updates
     components:
@@ -16,7 +16,7 @@
 - name: Add debian Security repo
   deb822_repository:
     name: debian
-    types: deb deb-src
+    types: deb
     uris: http://deb.debian.org/debian
     suites:  bookworm-security
     components:
