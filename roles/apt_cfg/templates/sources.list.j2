@@ -1,17 +1,17 @@
 {% if ansible_distribution == 'Debian' %}
-deb https://deb.debian.org/debian {{ ansible_distribution_release }} main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}\n
-deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}\n
-deb https://deb.debian.org/debian-security/ {{ ansible_distribution_release }}-security main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}\n
-deb https://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}\n
+deb https://deb.debian.org/debian {{ ansible_distribution_release }} main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
+deb https://deb.debian.org/debian-security/ {{ ansible_distribution_release }}-security main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }}-backports main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
 {% elif ansible_distribution == 'Ubuntu' %}
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates main restricted\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} universe\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates universe\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse\n
-deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-backports main restricted universe multiverse\n
-deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security main restricted\n
-deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security universe\n
-deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse\n
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates main restricted
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} universe
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates universe
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
+deb https://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-backports main restricted universe multiverse
+deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security main restricted
+deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security universe
+deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse
 {% endif -%}
