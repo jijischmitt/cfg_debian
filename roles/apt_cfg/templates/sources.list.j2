@@ -1,3 +1,4 @@
+{% raw %}
 {% if ansible_distribution == 'Debian' %}
 deb https://deb.debian.org/debian {{ ansible_distribution_release }} main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
 deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates main contrib {% if ansible_distribution_major_version >= '12' %}non-free-firmware{% else %}non-free{% endif %}
@@ -15,3 +16,4 @@ deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-securi
 deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security universe
 deb https://security.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse
 {% endif %}
+{% endraw %}
