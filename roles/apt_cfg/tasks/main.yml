@@ -15,9 +15,9 @@
   
 - name: Add debian Security repo
   deb822_repository:
-    name: debian
+    name: debian.security
     types: deb
-    uris: http://deb.debian.org/debian
+    uris: http://security.debian.org/debian-security
     suites:  bookworm-security
     components:
       - main
