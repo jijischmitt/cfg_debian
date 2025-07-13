@@ -1,32 +1,26 @@
 ---
-
-# NOTE: Before 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
-- name: Ensure SELinux is set to enforcing mode
-  ansible.builtin.lineinfile:
-    path: /etc/selinux/config
-    regexp: '^SELINUX='
-    line: SELINUX=enforcing
-
-
+- name: Install apache httpd (state=present is optional)
+  ansible.builtin.apt:
+    name: apt-transport-https
+    state: present
 
 - name: Add debian repo
   deb822_repository:
     name: debian
     types: deb
-    uris: http://deb.debian.org/debian
+    uris: https://deb.debian.org/debian
     suites: bookworm bookworm-updates
     components:
       - main
       - contrib
       - non-free-firmware
     signed_by: /usr/share/keyrings/debian-archive-keyring.gpg
-
-  
+    
 - name: Add debian Security repo
   deb822_repository:
     name: debian-security
     types: deb
-    uris: http://security.debian.org/debian-security
+    uris: https://security.debian.org/debian-security
     suites:  bookworm-security
     components:
       - main
