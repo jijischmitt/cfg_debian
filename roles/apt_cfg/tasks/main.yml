@@ -1,5 +1,14 @@
 ---
 
+# NOTE: Before 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
+- name: Ensure SELinux is set to enforcing mode
+  ansible.builtin.lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: SELINUX=enforcing
+
+
+
 - name: Add debian repo
   deb822_repository:
     name: debian
